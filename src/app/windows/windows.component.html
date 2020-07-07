@@ -1,0 +1,12 @@
+<ul>
+    <li *ngFor="let u of users" (click)="openDetails(u.userId)">
+        <div class="photo"><img src={{u.imgPath}} /></div>
+        <div class="markmdl">{{u.firstName}} {{u.lastName}}</div>
+        <div class="eng">id: {{u.userId}} ,login:{{u.userName}}</div>
+        <div class="btns">
+            <button type="button" (click)="deleteUser(u.userId)">usuń</button>
+            <button type="button" (click)="updateUser(u.userId)">edytuj</button>
+            
+        </div>
+    </li>
+</ul>

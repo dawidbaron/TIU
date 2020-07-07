@@ -1,0 +1,14 @@
+#text{
+    margin: 20px 0;
+    font-size: 50px;
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+div{
+    width: 50%;
+    height: auto;
+    font-size: 40px;
+    font-family: 'Baloo 2', cursive;
+    text-align: center;
+}

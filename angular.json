@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "froncik"
+    }
+  },
+  "defaultProject": "froncik",
+  "cli": {
+    "analytics": false
+  }
 }

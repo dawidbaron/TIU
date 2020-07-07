@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Photo</th>
+        <th *ngIf="this.role">Edit</th>
+        <th></th>
+    </tr>
+
+    <tr *ngFor="let user of users" (click)="openDetails(user.userId)">
+        
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td><img src="{{user.imgPath}}" alt="img"> </td>
+        <td>
+            <button type="button" (click)="deleteUser(user.userId)">usuń</button>
+            <button type="button" (click)="updateUser(user.userId)">edytuj</button>
+            <button type="button" (click)="detailsUser(user.userId)">szczegoly</button>
+        </td>
+    </tr>
+</table>
+
+<button *ngIf="this.role" (click)="addNewUser()" class="addUser">Add new user</button>
+
+
+<br /><br /><br /><br />
+<br />

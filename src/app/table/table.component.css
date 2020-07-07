@@ -1,0 +1,68 @@
+div {
+    position: relative;
+    top: 200px;
+  }
+  
+  table {
+  
+    color: rgb(172, 64, 64);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 90%;
+    cursor: pointer;
+    border-radius: 5%;
+    /*top: 200px;*/
+  }
+  
+  td,
+  th {
+  
+    height: 30px;
+    transition: all 0.3s;
+  }
+  
+  th {
+    background: rgb(114, 144, 153);
+    font-weight: bold;
+  }
+  
+  img {
+    height: 75px;
+    width: 75px;
+  }
+  
+  .delete {
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    background-color: red;
+    cursor: pointer
+  }
+  
+  .edit {
+  
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    background-color: green;
+    cursor: pointer
+  }
+  
+  
+  .addUser {
+    position: relative;
+    background-color: rgb(194, 191, 191);
+    color: rgb(56, 56, 56);
+    font-weight: bold;
+    width: 400px;
+    height: 40px;
+    top: 50px;
+    border-radius: 20px;
+    text-align: center;
+    left: calc(50% - 200px);
+    cursor: pointer
+  }
+  
