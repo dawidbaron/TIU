@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService, User } from '../service/data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-table',
@@ -12,6 +13,10 @@ export class TableComponent implements OnInit {
   users: User[];
   id: string;
   role: boolean;
+  fileName= 'Pobierz dane.xlsx';  
+  @Input() sortBy: string;
+  searchName:string;
+  
 
   constructor(
     private service: DataService,
@@ -20,7 +25,7 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+  
     if (localStorage.getItem('role') === 'Admin') {
       this.role = true;
     }
@@ -34,7 +39,9 @@ export class TableComponent implements OnInit {
       console.log(this.users)
     }, error => {console.log(error);})
   }
-
+  onChangePage(users: User[]) {
+    this.users = users;
+}
   updateUser(id) {
     this.router.navigate(['update', id])
     console.log(`update ${id}`)
@@ -42,7 +49,18 @@ export class TableComponent implements OnInit {
   detailsUser(id) {
     this.router.navigate(['more', id])
   }
+  exportexcel(): void 
+    {
+       let element = document.getElementById('excel-table'); 
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
 
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+       XLSX.writeFile(wb, this.fileName);
+			
+    }
+
+    
   deleteUser(id) {
 
     this.service.deleteById(id).subscribe(

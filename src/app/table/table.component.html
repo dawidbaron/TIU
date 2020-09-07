@@ -1,4 +1,8 @@
-<table>
+<input type="text" placeholder="Search by name" [(ngModel)]="searchName"/>
+<span *ngFor="let user of users|nameFilter:searchName">
+    <button type="button" (click)="detailsUser(user.userId)">Szukaj</button>
+</span>
+<table id="excel-table">
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
@@ -7,9 +11,9 @@
         <th></th>
     </tr>
 
-    <tr *ngFor="let user of users" (click)="openDetails(user.userId)">
+    <tr *ngFor="let user of users|lastname" (click)="openDetails(user.userId)">
         
-        <td>{{user.firstName}}</td>
+        <td>{{user.firstName|titlecase}}</td>
         <td>{{user.lastName}}</td>
         <td><img src="{{user.imgPath}}" alt="img"> </td>
         <td>
@@ -18,10 +22,15 @@
             <button type="button" (click)="detailsUser(user.userId)">szczegoly</button>
         </td>
     </tr>
+    
 </table>
 
-<button *ngIf="this.role" (click)="addNewUser()" class="addUser">Add new user</button>
 
+
+<button *ngIf="this.role" (click)="addNewUser()" class="addUser">Add new user</button>
+<button  (click)="exportexcel()"> EXPORT DO EXCELA</button> 
+  
+ 
 
 <br /><br /><br /><br />
 <br />

@@ -44,7 +44,7 @@ export class DataService {
         var val = this.http.post<User>(this.url + 'authenticate', loginCredentail);
         return val;
     }
-
+   
     getAllUsers(): Observable<User[]> {
         const token = localStorage.getItem('token');
             const httpOptions = {
